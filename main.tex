@@ -1,0 +1,258 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=1 cm,
+    bottom=1 cm,
+    left=1.5 cm,
+    right=1.5 cm,
+    footskip=1.0 cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Utkarsh's CV},
+    pdfauthor={Utkarsh},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.3 cm
+}{
+    0.2 cm
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Daksh Arora
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{Chennai, Tamil Nadu}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{mailto:daksharora712@gmail.com}{daksharora712@gmail.com}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{tel:+91-8939961909}{8939961909}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{https://www.linkedin.com/in/daksharora7/}{linkedin.com/in/daksharora7}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\href{https://github.com/dakshcodez}{github.com/dakshcodez}}\kern 5.0 pt%
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+    \section{Education}
+
+        \begin{twocolentry}{
+            Sep 2024 - Jul 2028 
+        }
+            \textbf{Vellore Institute of Technology} \mbox{B.Tech in Computer Science and Engineering (Information Security)} \end{twocolentry}
+            \vspace{0.05 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item CGPA: 8.92
+                \item Senior Core Committee at IEEE-Computer Society VIT
+                % \item \textbf{Relevant Coursework:} Structured and Object-Oriented Programming, Data Structures and Algorithms, Computer Architecture and Organization, Operating Systems, Database Management Systems, Computer Networks 
+            \end{highlights}
+        \end{onecolentry}
+
+
+\section{Technical Skills}
+\textbf{Languages:} Golang, JavaScript, TypeScript, Python, C, C++, Java \\
+\textbf{Frameworks:} Node.js, Express.js, FastAPI, Gin, React.js, TailwindCSS, OpenCV\\
+\textbf{Tools:}Git, Postman, Firebase, Supabase, AWS\\
+% \textbf{Libraries:}React, Axios, Framer Motion, React Hook Form, Zustand, Socket.io, Chart.js \\
+\textbf{Databases:}  MySQL, MongoDB, PostgreSQL, MariaDB, Redis, Firebase Firestore\\
+
+\section{Projects}
+        
+\begin{twocolentry}{
+    \href{https://github.com/dakshcodez/sagittarius}{Github LInk}
+}
+    \textbf{Peer-to-Peer File Sharing System}
+\end{twocolentry}
+
+\vspace{0.10 cm}
+\begin{onecolentry}
+    \begin{highlights}
+        \item Designed and implemented a distributed peer-to-peer file sharing system with deterministic file chunking and content-addressable storage.
+        \item Built hash-based integrity verification mechanisms to ensure data consistency and fault tolerance across nodes.
+        \item Developed a custom TCP-based networking layer with length-prefixed message framing and structured communication protocols.
+        \item Implemented versioned handshake mechanisms to support backward compatibility and extensible peer communication.
+        \item Optimized data transfer reliability and performance in a decentralized architecture.
+        \item \textbf{Technologies:} Golang, TCP Sockets, Distributed Systems
+    \end{highlights}
+\end{onecolentry}
+
+
+        \vspace{0.2 cm}
+
+\begin{twocolentry}{
+            \href{https://github.com/dakshcodez/Real_Time_Chat_Application_Backend}{Github Link}
+        }
+            \textbf{Real-Time Chat Backend}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Built a secure, low-latency real-time messaging backend supporting one-to-one communication using event-driven architecture.
+                \item Implemented JWT-based authentication and authorization, preventing IDOR vulnerabilities and enforcing strict access control.
+                \item Designed RESTful APIs for chat operations including message history, edit/delete functionality, and session management.
+                \item Integrated persistent storage with relational database design for efficient querying and scalability.
+                \item Enabled real-time synchronization using WebSocket-based communication.
+                \item Implemented user-level rate limiting to prevent spam, abuse, and ensure system stability.
+                
+                \item \textbf{Technologies:} Golang, WebSockets, PostgreSQL, GORM, JWT
+            \end{highlights}
+        \end{onecolentry}
+    
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            \href{https://github.com/dakshcodez/Style_Me_AI_Wardrobe_Stylist}{Github Link}
+        }
+            \textbf{AI Wardrobe Stylist}\end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Developed an AI-powered web application that generates personalized outfit recommendations based on user wardrobe data.
+                \item Built scalable REST APIs and backend architecture for secure management of user profiles and inventory.
+                \item Integrated real-time data synchronization and AI-driven recommendation pipelines for enhanced user experience.
+                
+                \item \textbf{Technologies:} Node.js, Express.js, Firebase, Firestore, Gemini API
+           \end{highlights}
+        \end{onecolentry}
+
+\section{Achievements}
+
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Ranked among the Top 30 participants in \textbf{Reverse Coding X}, a reverse coding competition hosted by \textbf{IIT Madras} as part of Shaastra.
+            \item As \textbf{Core Committee Member, IEEE Computer Society}, contributed to delivering multiple projects in a team environment and organized hackathons and workshops to foster technical growth.
+            
+        \end{highlights}
+    \end{onecolentry}
+
+\end{document}
