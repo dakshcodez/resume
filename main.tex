@@ -18,8 +18,8 @@
 \usepackage{fontawesome5}
 \usepackage{amsmath}
 \usepackage[
-    pdftitle={Utkarsh's CV},
-    pdfauthor={Utkarsh},
+    pdftitle={Daksh's CV},
+    pdfauthor={Daksh},
     pdfcreator={LaTeX},
     colorlinks=true,
     urlcolor=primaryColor
@@ -167,23 +167,56 @@
         \begin{twocolentry}{
             Sep 2024 - Jul 2028 
         }
-            \textbf{Vellore Institute of Technology} \mbox{B.Tech in Computer Science and Engineering (Information Security)} \end{twocolentry}
+            \textbf{Vellore Institute of Technology}, \mbox{B.Tech in Computer Science and Engineering} \end{twocolentry}
             \vspace{0.05 cm}
         \begin{onecolentry}
             \begin{highlights}
                 \item CGPA: 8.92
-                \item Senior Core Committee at IEEE-Computer Society VIT
+                \item Senior Core Committee Member at IEEE-Computer Society VIT
                 % \item \textbf{Relevant Coursework:} Structured and Object-Oriented Programming, Data Structures and Algorithms, Computer Architecture and Organization, Operating Systems, Database Management Systems, Computer Networks 
             \end{highlights}
         \end{onecolentry}
 
 
 \section{Technical Skills}
-\textbf{Languages:} Golang, JavaScript, TypeScript, Python, C, C++, Java \\
-\textbf{Frameworks:} Node.js, Express.js, FastAPI, Gin, React.js, TailwindCSS, OpenCV\\
-\textbf{Tools:}Git, Postman, Firebase, Supabase, AWS\\
+\textbf{Languages:} Golang, TypeScript, JavaScript, Python, C, C++, Java \\
+\textbf{Frameworks:} Node.js, Express.js, Nest.js, FastAPI, Gin, React.js, TailwindCSS, OpenCV\\
+\textbf{Tools:} Git, Postman, Firebase, Supabase, AWS\\
 % \textbf{Libraries:}React, Axios, Framer Motion, React Hook Form, Zustand, Socket.io, Chart.js \\
-\textbf{Databases:}  MySQL, MongoDB, PostgreSQL, MariaDB, Redis, Firebase Firestore\\
+\textbf{Databases:}  DynamoDB, MySQL, MongoDB, PostgreSQL, MariaDB, Redis, Firebase Firestore\\
+
+\section{Experience}
+
+        \begin{twocolentry}{
+            Apr 2026 \textendash June 2026 
+        }
+            \textbf{Software Developer Intern}, \href{https://thetxfoundation.com/}{TX Minds} \textendash remote \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item  Developed scalable backend infrastructure for a non-profit donation platform handling \textbf{financial transactions}, with payment gateway integrations across \textbf{HDFC} and \textbf{ICICI}.
+                \item Implemented \textbf{2FA authentication} and \textbf{Strapi CMS} integration using \textbf{OTP workflows via Amazon SES}, ensuring secure and production-ready user onboarding and dynamic content management.
+                \item Designed REST APIs for donation workflows, authentication, and transaction processing, ensuring secure and reliable request handling.
+                
+                
+            \end{highlights}
+        \end{onecolentry}
+                % \vspace{0.12 cm}
+
+        % \begin{twocolentry}{
+        %     May 2025 \textendash July 2025 
+        % }
+        %     \textbf{Summer Intern}, Tata group \textendash   Jamshedpur, Jharkhand\end{twocolentry}
+
+        % \vspace{0.10 cm}
+        % \begin{onecolentry}
+        %     \begin{highlights}
+        %         \item Developed a scalable auth platform for 1000+ users using NestJS, Next.js, JWT flows, and modular RBAC guards.
+        %         \item Automated operational workflows with cron-driven pipelines, transactional mailers, and submission channels.
+        %         \item Increased data retrieval speed by 40\% by switching from raw SQL to Prisma ORM.
+        %     \end{highlights}
+        % \end{onecolentry}
 
 \section{Projects}
         
@@ -196,11 +229,11 @@
 \vspace{0.10 cm}
 \begin{onecolentry}
     \begin{highlights}
-        \item Designed and implemented a distributed peer-to-peer file sharing system with deterministic file chunking and content-addressable storage.
-        \item Built hash-based integrity verification mechanisms to ensure data consistency and fault tolerance across nodes.
-        \item Developed a custom TCP-based networking layer with length-prefixed message framing and structured communication protocols.
-        \item Implemented versioned handshake mechanisms to support backward compatibility and extensible peer communication.
-        \item Optimized data transfer reliability and performance in a decentralized architecture.
+        \item Built a distributed peer-to-peer file sharing system using deterministic file chunking and content-addressable storage for efficient data distribution.
+        \item Implemented hash-based integrity verification and fault-tolerance mechanisms to ensure data consistency across decentralized nodes.
+        \item Developed a custom TCP networking layer with length-prefixed message framing and structured peer-to-peer communication protocols.
+        \item Designed versioned handshakes and optimized data transfer workflows to support backward compatibility, reliability, and scalability.
+
         \item \textbf{Technologies:} Golang, TCP Sockets, Distributed Systems
     \end{highlights}
 \end{onecolentry}
@@ -209,41 +242,40 @@
         \vspace{0.2 cm}
 
 \begin{twocolentry}{
-            \href{https://github.com/dakshcodez/Real_Time_Chat_Application_Backend}{Github Link}
+            \href{https://courier-chat.vercel.app/}{live} \AND 
+            \href{https://github.com/dakshcodez/Real_Time_Chat_Application_Backend}{Repo}
         }
-            \textbf{Real-Time Chat Backend}\end{twocolentry}
+            \textbf{Courier Chat}\end{twocolentry}
 
         \vspace{0.10 cm}
         \begin{onecolentry}
             \begin{highlights}
-                \item Built a secure, low-latency real-time messaging backend supporting one-to-one communication using event-driven architecture.
-                \item Implemented JWT-based authentication and authorization, preventing IDOR vulnerabilities and enforcing strict access control.
-                \item Designed RESTful APIs for chat operations including message history, edit/delete functionality, and session management.
-                \item Integrated persistent storage with relational database design for efficient querying and scalability.
-                \item Enabled real-time synchronization using WebSocket-based communication.
-                \item Implemented user-level rate limiting to prevent spam, abuse, and ensure system stability.
-                
+                \item Built a secure, low-latency real-time messaging backend using Golang, WebSockets, and an event-driven architecture for one-to-one communication.
+                \item Implemented JWT-based authentication, authorization, and user-level rate limiting to prevent IDOR vulnerabilities, spam, and abuse.
+                \item Designed RESTful APIs supporting message history, editing, deletion, and session management.
+                \item Integrated PostgreSQL with GORM for persistent storage, efficient querying, and real-time message synchronization at scale.
+
                 \item \textbf{Technologies:} Golang, WebSockets, PostgreSQL, GORM, JWT
             \end{highlights}
         \end{onecolentry}
     
         \vspace{0.2 cm}
 
-        \begin{twocolentry}{
-            \href{https://github.com/dakshcodez/Style_Me_AI_Wardrobe_Stylist}{Github Link}
-        }
-            \textbf{AI Wardrobe Stylist}\end{twocolentry}
+        % \begin{twocolentry}{
+        %     \href{https://github.com/dakshcodez/Style_Me_AI_Wardrobe_Stylist}{Github Link}
+        % }
+        %     \textbf{AI Wardrobe Stylist}\end{twocolentry}
 
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Developed an AI-powered web application that generates personalized outfit recommendations based on user wardrobe data.
-                \item Built scalable REST APIs and backend architecture for secure management of user profiles and inventory.
-                \item Integrated real-time data synchronization and AI-driven recommendation pipelines for enhanced user experience.
+        % \vspace{0.10 cm}
+        % \begin{onecolentry}
+        %     \begin{highlights}
+        %         \item Developed an AI-powered web application that generates personalized outfit recommendations based on user wardrobe data.
+        %         \item Built scalable REST APIs and backend architecture for secure management of user profiles and inventory.
+        %         \item Integrated real-time data synchronization and AI-driven recommendation pipelines for enhanced user experience.
                 
-                \item \textbf{Technologies:} Node.js, Express.js, Firebase, Firestore, Gemini API
-           \end{highlights}
-        \end{onecolentry}
+        %         \item \textbf{Technologies:} Node.js, Express.js, Firebase, Firestore, Gemini API
+        %    \end{highlights}
+        % \end{onecolentry}
 
 \section{Achievements}
 
@@ -256,3 +288,4 @@
     \end{onecolentry}
 
 \end{document}
+
