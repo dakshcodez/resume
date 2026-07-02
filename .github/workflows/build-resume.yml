@@ -1,0 +1,46 @@
+name: Build Resume
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'main.tex'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+
+      - name: Rename compiled PDF
+        run: mv main.pdf daksh-arora-resume.pdf
+
+      - name: Commit compiled PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-compile resume PDF [skip ci]"
+          file_pattern: daksh-arora-resume.pdf
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Drive upload dependencies
+        run: pip install google-api-python-client google-auth
+
+      - name: Update Google Drive file
+        env:
+          GDRIVE_SA_KEY: ${{ secrets.GDRIVE_SA_KEY }}
+          GDRIVE_FILE_ID: ${{ secrets.GDRIVE_FILE_ID }}
+        run: python scripts/upload_to_drive.py daksh-arora-resume.pdf
