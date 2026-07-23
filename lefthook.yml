@@ -1,0 +1,15 @@
+pre-commit:
+  commands:
+    format-tex:
+      glob: "*.tex"
+      run: latexindent -w -s --cruft=/tmp {staged_files}
+      stage_fixed: true
+
+pre-push:
+  commands:
+    lint-tex:
+      glob: "*.tex"
+      # 1: command terminated by space (stylistic noise)
+      # 8: dash length (false positives on arithmetic like "5 pt - 0.3 cm")
+      # 27: chktex failing to resolve \input{glyphtounicode} on its own search path
+      run: chktex -q -n1 -n8 -n27 {staged_files}
