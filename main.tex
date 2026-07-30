@@ -4,8 +4,8 @@
 % Packages:
 \usepackage[
     ignoreheadfoot,
-    top=1 cm,
-    bottom=1 cm,
+    top=0.85 cm,
+    bottom=0.85 cm,
     left=1.5 cm,
     right=1.5 cm,
     footskip=1.0 cm,
@@ -54,21 +54,21 @@
 \setlength{\columnsep}{0.15cm}
 \pagenumbering{gobble}
 
-\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titleformat{\section}{\needspace{2\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
 
 \titlespacing{\section}{
     -1pt
 }{
-    0.3 cm
+    0.15 cm
 }{
-    0.2 cm
+    0.10 cm
 }
 
 \renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
 \newenvironment{highlights}{
     \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
+        topsep=0.06 cm,
+        parsep=0.06 cm,
         partopsep=0pt,
         itemsep=0pt,
         leftmargin=0 cm + 10pt
@@ -189,18 +189,31 @@
 \section{Experience}
 
 \begin{twocolentry}{
-		Apr 2026 \textendash June 2026
+		June 2026 \textendash Present
+	}
+	\textbf{Software Development Engineer Intern}, Independ \textendash remote \end{twocolentry}
+
+\vspace{0.06 cm}
+\begin{onecolentry}
+	\begin{highlights}
+		\item Wrote unit tests for the \textbf{files} and \textbf{admin} modules covering schedulers, services, and repositories using \textbf{Vitest} within a \textbf{NestJS} backend, validating \textbf{CASL}-based access control, cursor pagination, and \textbf{dependency injection} across 1,700+ lines of test code.
+		\item Built an \textbf{AI chat and negotiations context} module, enriching \textbf{LLM} prompts with authenticated \textbf{conversation history} and structured negotiation/bid data (budget, timeline, milestones) via participant-scoped context services, improving response accuracy and relevance.
+		\item Actively building \textbf{guardrails} for the AI pipeline -- \textbf{JSON-schema-constrained structured outputs}, strict \textbf{Zod} validation, and automatic retry-on-invalid-output logic -- to prevent \textbf{hallucinations} and stop the model from returning false or unverified data.
+	\end{highlights}
+\end{onecolentry}
+\vspace{0.05 cm}
+
+\begin{twocolentry}{
+		Apr 2026 \textendash July 2026
 	}
 	\textbf{Software Developer Intern}, \href{https://thetxfoundation.com/}{TX Minds} \textendash remote \end{twocolentry}
 
-\vspace{0.10 cm}
+\vspace{0.06 cm}
 \begin{onecolentry}
 	\begin{highlights}
-		\item  Developed scalable backend infrastructure for a non-profit donation platform handling \textbf{financial transactions}, with payment gateway integrations across \textbf{HDFC} and \textbf{ICICI}.
-		\item Implemented \textbf{2FA authentication} and \textbf{Strapi CMS} integration using \textbf{OTP workflows via Amazon SES}, ensuring secure and production-ready user onboarding and dynamic content management.
-		\item Designed REST APIs for donation workflows, authentication, and transaction processing, ensuring secure and reliable request handling.
-
-
+		\item Built a donation and payment backend using \textbf{Node.js}, \textbf{TypeScript}, \textbf{Express.js}, \textbf{Drizzle ORM}, and \textbf{PostgreSQL} for a non-profit platform, integrating \textbf{HDFC}/\textbf{ICICI} payment gateways, \textbf{2FA authentication}, and a custom \textbf{Strapi CMS} OTP plugin.
+		\item Built an asynchronous receipt pipeline with \textbf{BullMQ} and \textbf{Redis}, dispatching idempotent, rate-limited jobs with exponential-backoff retries to deliver donation receipt and OTP/password-reset emails via \textbf{AWS SES}.
+		\item Authored the production \textbf{AWS} deployment architecture to migrate the backend off Render \textendash \textbf{EC2} multi-instance deployment behind an \textbf{Application Load Balancer}, \textbf{RDS} PostgreSQL, \textbf{S3}, \textbf{CloudFront} CDN, and \textbf{ACM}-managed TLS \textendash for high availability and horizontal scalability.
 	\end{highlights}
 \end{onecolentry}
 % \vspace{0.12 cm}
@@ -227,20 +240,17 @@
 	\textbf{Peer-to-Peer File Sharing System}
 \end{twocolentry}
 
-\vspace{0.10 cm}
+\vspace{0.06 cm}
 \begin{onecolentry}
 	\begin{highlights}
-		\item Built a distributed peer-to-peer file sharing system using deterministic file chunking and content-addressable storage for efficient data distribution.
-		\item Implemented hash-based integrity verification and fault-tolerance mechanisms to ensure data consistency across decentralized nodes.
-		\item Developed a custom TCP networking layer with length-prefixed message framing and structured peer-to-peer communication protocols.
-		\item Designed versioned handshakes and optimized data transfer workflows to support backward compatibility, reliability, and scalability.
-
+		\item Built a distributed peer-to-peer file sharing system using deterministic file chunking, content-addressable storage, and hash-based integrity verification for fault-tolerant, consistent data distribution across decentralized nodes.
+		\item Developed a custom TCP networking layer with length-prefixed message framing, versioned handshakes, and optimized data transfer workflows for reliable, backward-compatible communication.
 		\item \textbf{Technologies:} Golang, TCP Sockets, Distributed Systems
 	\end{highlights}
 \end{onecolentry}
 
 
-\vspace{0.2 cm}
+\vspace{0.10 cm}
 
 \begin{twocolentry}{
 		\href{https://github.com/dakshcodez/qualcomm-hack-lore}{Github Link}
@@ -248,15 +258,12 @@
 	\textbf{Lore -- On-Device AI Knowledge Assistant}
 \end{twocolentry}
 
-\vspace{0.10 cm}
+\vspace{0.06 cm}
 \begin{onecolentry}
 	\begin{highlights}
-		\item Built an on-device AI knowledge assistant during the Qualcomm Snapdragon Multiverse Hackathon using Qualcomm's AI stack to enable private, low-latency inference.
-		\item Designed a Retrieval-Augmented Generation (RAG) pipeline with document parsing, semantic chunking, vector search, and contextual response generation.
-		\item Optimized inference using Qualcomm AI Hub models running on Snapdragon NPUs, eliminating cloud dependency while improving response latency.
-		\item Engineered a scalable backend for document ingestion, indexing, retrieval, and session management, enabling efficient querying over large document collections.
-
-		\item \textbf{Technologies:} Python, FastAPI, RAG, Vector Database, Qualcomm AI Hub, Snapdragon NPU
+		\item Built an on-device AI knowledge assistant during the Qualcomm Snapdragon Multiverse Hackathon, designing a Retrieval-Augmented Generation (RAG) pipeline with document parsing, semantic chunking, vector search, and contextual response generation.
+		\item Optimized inference using Qualcomm AI Hub models on Snapdragon NPUs and engineered a scalable backend for document ingestion, indexing, retrieval, and session management, eliminating cloud dependency while improving latency.
+		\item \textbf{Technologies:} Python, FastAPI, RAG, LanceDB, Qualcomm AI Hub, Snapdragon NPU
 	\end{highlights}
 \end{onecolentry}
 
@@ -300,9 +307,9 @@
 
 \begin{onecolentry}
 	\begin{highlights}
-		\item Winner of the \textbf{Qualcomm Snapdragon Multiverse Hackathon} for developing \textbf{Lore}, an on-device AI knowledge assistant leveraging Qualcomm AI Hub and Snapdragon NPUs.
-		\item Ranked among the Top 30 participants in \textbf{Reverse Coding X}, a reverse coding competition hosted by \textbf{IIT Madras} as part of Shaastra.
-		\item Senior Core Committee Member of the \textbf{IEEE Computer Society, VIT}, contributing to multiple technical projects while organizing hackathons, coding contests, and workshops.
+		\item Winner, \textbf{Qualcomm Snapdragon Multiverse Hackathon} \textendash built \textbf{Lore}, an on-device AI assistant on Snapdragon NPUs.
+		\item Top 30, \textbf{Reverse Coding X}, a reverse coding competition hosted by \textbf{IIT Madras} as part of Shaastra.
+		\item Senior Core Committee Member, \textbf{IEEE Computer Society VIT} \textendash hackathons, coding contests, and workshops.
 	\end{highlights}
 \end{onecolentry}
 \end{document}
