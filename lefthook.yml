@@ -6,8 +6,28 @@ pre-commit:
       stage_fixed: true
 
 pre-push:
+  piped: true
   commands:
+    # Pull down whatever the CI "Build Resume" run committed (the compiled
+    # daksh-arora-resume.pdf) before pushing, so the local tree keeps up with
+    # origin/main. Rebases local commits on top; if it had to move HEAD it
+    # aborts this push so you can re-run `git push` against the synced tree.
+    sync:
+      priority: 1
+      run: |
+        [ "$(git branch --show-current)" = "main" ] || exit 0
+        git fetch -q origin main
+        if git merge-base --is-ancestor origin/main HEAD; then
+          exit 0
+        fi
+        git rebase --autostash origin/main || {
+          echo "⚠  rebase onto origin/main hit a conflict — resolve it, then git push"
+          exit 1
+        }
+        echo "🔄 Synced with origin/main (pulled CI's compiled PDF). Re-run: git push"
+        exit 1
     lint-tex:
+      priority: 2
       glob: "*.tex"
       # 1: command terminated by space (stylistic noise)
       # 8: dash length (false positives on arithmetic like "5 pt - 0.3 cm")
