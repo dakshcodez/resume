@@ -205,16 +205,17 @@
 \vspace{0.05 cm}
 
 \begin{twocolentry}{
-		Apr 2026 \textendash August 2026
+		Apr 2026 \textendash September 2026
 	}
 	\textbf{Software Developer Intern}, \href{https://thetxfoundation.com/}{TX Minds} \textendash remote \end{twocolentry}
 
 \vspace{0.06 cm}
 \begin{onecolentry}
 	\begin{highlights}
-		\item Built a donation and payment backend using \textbf{Node.js}, \textbf{TypeScript}, \textbf{Express.js}, \textbf{Drizzle ORM}, and \textbf{PostgreSQL} for a non-profit platform, integrating \textbf{HDFC}/\textbf{ICICI} payment gateways, \textbf{2FA authentication}, and a custom \textbf{Strapi CMS} OTP plugin.
-		\item Built an asynchronous receipt pipeline with \textbf{BullMQ} and \textbf{Redis}, dispatching idempotent, rate-limited jobs with exponential-backoff retries to deliver donation receipt and OTP/password-reset emails via \textbf{AWS SES}.
-		\item Authored the production \textbf{AWS} deployment architecture to migrate the backend off Render \textendash \textbf{EC2} multi-instance deployment behind an \textbf{Application Load Balancer}, \textbf{RDS} PostgreSQL, \textbf{S3}, \textbf{CloudFront} CDN, and \textbf{ACM}-managed TLS \textendash for high availability and horizontal scalability.
+		\item Built the donation and payment backend for a non-profit platform (\textbf{Node.js}, \textbf{TypeScript}, \textbf{Express 5}, \textbf{Drizzle ORM}, \textbf{PostgreSQL}), integrating \textbf{HDFC} and \textbf{ICICI} payment gateways, \textbf{2FA}, \textbf{Cloudflare Turnstile} bot protection, and a custom \textbf{Strapi CMS} OTP-auth plugin for admin login.
+		\item Designed an asynchronous receipt pipeline on \textbf{BullMQ} and \textbf{Redis} with idempotent, rate-limited jobs and exponential-backoff retries, delivering donation receipts and OTP/password-reset emails through \textbf{AWS SES}; extended SES delivery to Strapi admin password resets.
+		\item Led the migration from Render to \textbf{AWS} (ap-south-1): containerised the API and CMS on \textbf{EC2} behind an \textbf{ALB} with \textbf{ACM}-managed TLS, \textbf{RDS} PostgreSQL over verified TLS, and \textbf{S3} for media; wrote the deployment runbook.
+		\item Built a CI/CD pipeline in \textbf{GitHub Actions}: type-check, build and dependency-audit gates on every PR, then push-button production deploys to \textbf{ECR} and \textbf{EC2} via \textbf{OIDC} and \textbf{SSM} (no stored AWS keys), with health-check gating and automatic rollback.
 	\end{highlights}
 \end{onecolentry}
 % \vspace{0.12 cm}
