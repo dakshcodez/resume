@@ -212,10 +212,9 @@
 \vspace{0.06 cm}
 \begin{onecolentry}
 	\begin{highlights}
-		\item Built the donation and payment backend for a non-profit platform (\textbf{Node.js}, \textbf{TypeScript}, \textbf{Express 5}, \textbf{Drizzle ORM}, \textbf{PostgreSQL}), integrating \textbf{HDFC} and \textbf{ICICI} payment gateways, \textbf{2FA}, \textbf{Cloudflare Turnstile} bot protection, and a custom \textbf{Strapi CMS} OTP-auth plugin for admin login.
-		\item Designed an asynchronous receipt pipeline on \textbf{BullMQ} and \textbf{Redis} with idempotent, rate-limited jobs and exponential-backoff retries, delivering donation receipts and OTP/password-reset emails through \textbf{AWS SES}; extended SES delivery to Strapi admin password resets.
-		\item Led the migration from Render to \textbf{AWS} (ap-south-1): containerised the API and CMS on \textbf{EC2} behind an \textbf{ALB} with \textbf{ACM}-managed TLS, \textbf{RDS} PostgreSQL over verified TLS, and \textbf{S3} for media; wrote the deployment runbook.
-		\item Built a CI/CD pipeline in \textbf{GitHub Actions}: type-check, build and dependency-audit gates on every PR, then push-button production deploys to \textbf{ECR} and \textbf{EC2} via \textbf{OIDC} and \textbf{SSM} (no stored AWS keys), with health-check gating and automatic rollback.
+		\item Built the donation and payment backend for a non-profit platform (\textbf{Node.js}, \textbf{TypeScript}, \textbf{Express 5}, \textbf{Drizzle ORM}, \textbf{PostgreSQL}), integrating \textbf{HDFC} and \textbf{ICICI} payment gateways, \textbf{2FA}, \textbf{Cloudflare Turnstile}, and a custom \textbf{Strapi CMS} OTP-auth plugin.
+		\item Designed an asynchronous receipt pipeline on \textbf{BullMQ} and \textbf{Redis} with idempotent, rate-limited jobs and exponential-backoff retries, delivering donation receipts and OTP/password-reset emails through \textbf{AWS SES}.
+		\item Led the migration from Render to \textbf{AWS} (\textbf{EC2} behind an \textbf{ALB} with \textbf{ACM} TLS, \textbf{RDS} PostgreSQL, \textbf{S3}) and built a \textbf{GitHub Actions} CI/CD pipeline deploying via \textbf{ECR}, \textbf{OIDC} and \textbf{SSM} with no stored keys, health-check gating and automatic rollback.
 	\end{highlights}
 \end{onecolentry}
 % \vspace{0.12 cm}
