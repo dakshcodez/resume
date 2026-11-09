@@ -1,316 +1,172 @@
-\documentclass[10pt, letterpaper]{article}
+%------------------------
+% Resume
+% Template: "Resume Template by Anubhav" by Anubhav Singh (github.com/xprilion)
+% License : MIT / CC BY 4.0 (template)
+% Content : Daksh Arora
+%------------------------
 
-% CI/CD pipeline test trigger
-% sync-hook test 2026-09-01 (second push)
-% Packages:
-\usepackage[
-    ignoreheadfoot,
-    top=0.85 cm,
-    bottom=0.85 cm,
-    left=1.5 cm,
-    right=1.5 cm,
-    footskip=1.0 cm,
-]{geometry}
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{tabularx}
-\usepackage{array}
-\usepackage[dvipsnames]{xcolor}
-\definecolor{primaryColor}{RGB}{0, 0, 0}
-\usepackage{enumitem}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
 \usepackage{fontawesome5}
-\usepackage{amsmath}
-\usepackage[
-    pdftitle={Daksh's CV},
-    pdfauthor={Daksh},
-    pdfcreator={LaTeX},
-    colorlinks=true,
-    urlcolor=primaryColor
-]{hyperref}
-\usepackage[pscoord]{eso-pic}
-\usepackage{calc}
-\usepackage{bookmark}
-\usepackage{lastpage}
-\usepackage{changepage}
-\usepackage{paracol}
-\usepackage{ifthen}
-\usepackage{needspace}
-\usepackage{iftex}
+\definecolor{linkblue}{RGB}{0,102,204}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true, urlcolor=linkblue, linkcolor=linkblue}
+\usepackage{fancyhdr}
 
-\ifPDFTeX
-    \input{glyphtounicode}
-    \pdfgentounicode=1
-    \usepackage[T1]{fontenc}
-    \usepackage[utf8]{inputenc}
-    \usepackage{lmodern}
-\fi
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
-\usepackage{charter}
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.530in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.45in}
+\addtolength{\textheight}{1in}
 
+\urlstyle{rm}
+
+\raggedbottom
 \raggedright
-\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
-\pagestyle{empty}
-\setcounter{secnumdepth}{0}
-\setlength{\parindent}{0pt}
-\setlength{\topskip}{0pt}
-\setlength{\columnsep}{0.15cm}
-\pagenumbering{gobble}
+\setlength{\tabcolsep}{0in}
 
-\titleformat{\section}{\needspace{2\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-10pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-6pt}]
 
-\titlespacing{\section}{
-    -1pt
-}{
-    0.15 cm
-}{
-    0.10 cm
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
 }
 
-\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
-\newenvironment{highlights}{
-    \begin{itemize}[
-        topsep=0.06 cm,
-        parsep=0.06 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=0 cm + 10pt
-    ]
-}{
-    \end{itemize}
+\newcommand{\resumeItemWithoutTitle}[1]{
+  \item\small{
+    {\vspace{-2pt}#1}
+  }
 }
 
-\newenvironment{highlightsforbulletentries}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=10pt
-    ]
-}{
-    \end{itemize}
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-5pt}
 }
 
-\newenvironment{onecolentry}{
-    \begin{adjustwidth}{
-        0 cm + 0.00001 cm
-    }{
-        0 cm + 0.00001 cm
-    }
-}{
-    \end{adjustwidth}
-}
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-3pt}}
 
-\newenvironment{twocolentry}[2][]{
-    \onecolentry
-    \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4.5 cm}
-    \begin{paracol}{2}
-}{
-    \switchcolumn \raggedleft \secondColumn
-    \end{paracol}
-    \endonecolentry
-}
+\renewcommand{\labelitemii}{$\circ$}
 
-\newenvironment{threecolentry}[3][]{
-    \onecolentry
-    \def\thirdColumn{#3}
-    \setcolumnwidth{, \fill, 4.5 cm}
-    \begin{paracol}{3}
-    {\raggedright #2} \switchcolumn
-}{
-    \switchcolumn \raggedleft \thirdColumn
-    \end{paracol}
-    \endonecolentry
-}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[topsep=2pt,itemsep=2pt,parsep=0pt,partopsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
-\newenvironment{header}{
-    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
-}{
-    \par\kern\topsep
-}
+%-----------------------------
+%%%%%%  CV STARTS HERE  %%%%%%
 
 \begin{document}
-\newcommand{\AND}{\unskip
-	\cleaders\copy\ANDbox\hskip\wd\ANDbox
-	\ignorespaces
-}
-\newsavebox\ANDbox
-\sbox\ANDbox{$|$}
 
-\begin{header}
-	\fontsize{25 pt}{25 pt}\selectfont Daksh Arora
+%----------HEADING-----------------
+\begin{center}
+  {\Huge \textbf{Daksh Arora}} \\ \vspace{4pt}
+  \small Chennai, India $|$ \href{mailto:daksharora712@gmail.com}{daksharora712@gmail.com} $|$ +91-8939961909 $|$ \href{https://www.linkedin.com/in/daksharora7/}{linkedin.com/in/daksharora7} $|$ \href{https://github.com/dakshcodez}{github.com/dakshcodez}
+\end{center}
 
-	\vspace{5 pt}
-
-	\normalsize
-	\mbox{Chennai, Tamil Nadu}%
-	\kern 5.0 pt%
-	\AND%
-	\kern 5.0 pt%
-	\mbox{\href{mailto:daksharora712@gmail.com}{daksharora712@gmail.com}}%
-	\kern 5.0 pt%
-	\AND%
-	\kern 5.0 pt%
-	\mbox{\href{tel:+91-8939961909}{8939961909}}%
-	\kern 5.0 pt%
-	\AND%
-	\kern 5.0 pt%
-	\mbox{\href{https://www.linkedin.com/in/daksharora7/}{linkedin.com/in/daksharora7}}%
-	\kern 5.0 pt%
-	\AND%
-	\kern 5.0 pt%
-	\mbox{\href{https://github.com/dakshcodez}{github.com/dakshcodez}}\kern 5.0 pt%
-\end{header}
-
-\vspace{5 pt - 0.3 cm}
-
+%-----------EDUCATION-----------------
 \section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Vellore Institute of Technology}{Chennai, India}
+      {B.Tech in Computer Science and Engineering;  CGPA: 8.87}{Sep 2024 - Jul 2028}
+      {\scriptsize \textit{ \footnotesize{\newline{}\textbf{Activities:} Technical Head, IEEE Computer Society VIT}}}
+    \resumeSubHeadingListEnd
 
-\begin{twocolentry}{
-		Sep 2024 - Jul 2028
-	}
-	\textbf{Vellore Institute of Technology}, \mbox{B.Tech in Computer Science and Engineering} \end{twocolentry}
-\vspace{0.05 cm}
-\begin{onecolentry}
-	\begin{highlights}
-		\item CGPA\@: 8.87
-		\item Senior Core Committee Member at IEEE-Computer Society VIT
-		% \item \textbf{Relevant Coursework:} Structured and Object-Oriented Programming, Data Structures and Algorithms, Computer Architecture and Organization, Operating Systems, Database Management Systems, Computer Networks 
-	\end{highlights}
-\end{onecolentry}
-
-
+\vspace{-5pt}
 \section{Technical Skills}
-\textbf{Languages:} Golang, TypeScript, JavaScript, Python, C, C++, Java \\
-\textbf{Frameworks:} Node.js, Express.js, Nest.js, FastAPI, Gin, React.js, TailwindCSS, OpenCV\\
-\textbf{Tools:} Git, Postman, Firebase, Supabase, AWS\\
-% \textbf{Libraries:}React, Axios, Framer Motion, React Hook Form, Zustand, Socket.io, Chart.js \\
-\textbf{Databases:}  DynamoDB, MySQL, MongoDB, PostgreSQL, MariaDB, Redis, Firebase Firestore\\
+  \resumeSubHeadingListStart
+  \resumeSubItem{Languages}{Golang, TypeScript, JavaScript, Python, C, C++, Java}
+  \resumeSubItem{Frameworks}{Node.js, Express.js, Nest.js, FastAPI, Gin, React.js, TailwindCSS, Drizzle ORM, BullMQ, Strapi}
+  \resumeSubItem{Tools \& Platforms}{Git, Docker, GitHub Actions, Firebase, Supabase, Linux, AWS (EC2, S3, SSM, Secrets Manager)}
+  \resumeSubItem{Databases}{PostgreSQL, MongoDB, MySQL, MariaDB, DynamoDB, Redis, LanceDB, Firebase Firestore}
+  \resumeSubItem{Concepts}{REST APIs \& Webhooks, WebSockets, Event-Driven Architecture, Outbox Pattern, RAG, CI/CD, pytest}
+  \resumeSubHeadingListEnd
 
+\vspace{-5pt}
 \section{Experience}
+  \resumeSubHeadingListStart
 
-\begin{twocolentry}{
-		June 2026 \textendash Present
-	}
-	\textbf{Software Development Engineer Intern}, Independ \textendash remote \end{twocolentry}
+    \resumeSubheading{Mintzy}{Remote $\cdot$ \href{https://mintzy.in/}{mintzy.in~\footnotesize\faIcon{external-link-alt}}}
+    {Quant Software Development Engineer Intern}{Oct 2026 - Present}
+    \resumeItemListStart
+        \resumeItem{Trading-signal service}
+          {Built an unattended, event-driven algorithmic trading-signal service in Python that converts AI price predictions into live long/short signals for NSE equities and routes them to the Tradetron and Algoninja brokers every trading day --- now live with real broker delivery across 8 stocks on an INR 10 lakh notional book.}
+        \resumeItem{Paper-trading engine}
+          {Simulated fills, slippage, a cash ledger, realized/unrealized P\&L, position flips and end-of-day square-off on 75-minute candles, emitting each position change as a sequenced structured signal event.}
+        \resumeItem{Reliable delivery layer}
+          {Engineered a durable MongoDB outbox with per-destination dispatcher threads, backoff retries, rate limiting and a time-based send gate, plus a reconciler verifying each broker's state against the engine's book.}
+        \vspace{-10pt}
+        \resumeItem{Market data \& testing}
+          {Integrated Angel One SmartAPI real-time prices over WebSocket (unattended TOTP login with stale-tick guards) and ported a quantitative capital-allocation strategy from research into production; shipped 282 pytest tests (unit, property-based, end-to-end) and a FastAPI health/status API.}
+      \resumeItemListEnd
 
-\vspace{0.06 cm}
-\begin{onecolentry}
-	\begin{highlights}
-		\item Wrote unit tests for the \textbf{files} and \textbf{admin} modules covering schedulers, services, and repositories using \textbf{Vitest} within a \textbf{NestJS} backend, validating \textbf{CASL}-based access control, cursor pagination, and \textbf{dependency injection} across 1,700+ lines of test code.
-		\item Built an \textbf{AI chat and negotiations context} module, enriching \textbf{LLM} prompts with authenticated \textbf{conversation history} and structured negotiation/bid data (budget, timeline, milestones) via participant-scoped context services, improving response accuracy and relevance.
-		\item Actively building \textbf{guardrails} for the AI pipeline -- \textbf{JSON-schema-constrained structured outputs}, strict \textbf{Zod} validation, and automatic retry-on-invalid-output logic -- to prevent \textbf{hallucinations} and stop the model from returning false or unverified data.
-	\end{highlights}
-\end{onecolentry}
-\vspace{0.05 cm}
+\vspace{3pt}
+    \resumeSubheading{Independ}{Remote $\cdot$ \href{https://beindepend.com/}{beindepend.com~\footnotesize\faIcon{external-link-alt}}}
+    {Software Development Engineer Intern}{June 2026 - Present}
+    \resumeItemListStart
+        \resumeItem{Production AI pack}
+          {Migrated the marketplace's AI features from a prototype into the production NestJS API: server-side project/proposal drafts with optimistic concurrency and transactional publish, plus a typed registry of 9 assistant tasks whose outputs pass the same validation as human input (milestone amounts computed server-side in integer paise).}
+        \resumeItem{Safety \& cost controls}
+          {Built per-user token budgets on Redis using atomic Lua scripts (reserve-then-settle, fail-closed) and a content-moderation and staff-review pipeline that compares drafts by meaning (NFKC-normalized), so rejected content cannot be resubmitted under a new draft or route.}
+        \resumeItem{Hardening \& quality}
+          {Hardened the platform against malformed Unicode (NUL / lone-surrogate rejection, code-point-accurate limits shared with the frontend) and delivered it spec-first with roughly 2,100 integration tests and five rounds of adversarial review.}
+      \resumeItemListEnd
 
-\begin{twocolentry}{
-		Apr 2026 \textendash Sep 2026
-	}
-	\textbf{Software Developer Intern}, \href{https://thetxfoundation.com/}{TX Minds} \textendash remote \end{twocolentry}
+\vspace{3pt}
+    \resumeSubheading{TX Minds}{Remote $\cdot$ \href{https://d300n8uxkvbnfj.cloudfront.net/}{thetxfoundation.com~\footnotesize\faIcon{external-link-alt}}}
+    {Software Developer Intern}{Apr 2026 - Sep 2026}
+    \resumeItemListStart
+        \resumeItem{Payments backend}
+          {Built the donation and payment backend for a non-profit platform (Node.js, TypeScript, Express 5, Drizzle ORM, PostgreSQL), integrating HDFC and ICICI payment gateways, 2FA, Cloudflare Turnstile and a custom Strapi CMS OTP-auth plugin.}
+        \resumeItem{Async receipt pipeline}
+          {Designed an idempotent, rate-limited BullMQ and Redis job pipeline with exponential-backoff retries, delivering donation receipts and OTP/password-reset emails via AWS SES.}
+        \resumeItem{Cloud migration \& CI/CD}
+          {Led the migration from Render to AWS (EC2 behind an ALB with ACM TLS, RDS PostgreSQL, S3) and built a GitHub Actions pipeline deploying via ECR, OIDC and SSM with no stored keys, health-check gating and automatic rollback.}
+      \resumeItemListEnd
 
-\vspace{0.06 cm}
-\begin{onecolentry}
-	\begin{highlights}
-		\item Built the donation and payment backend for a non-profit platform (\textbf{Node.js}, \textbf{TypeScript}, \textbf{Express 5}, \textbf{Drizzle ORM}, \textbf{PostgreSQL}), integrating \textbf{HDFC} and \textbf{ICICI} payment gateways, \textbf{2FA}, \textbf{Cloudflare Turnstile}, and a custom \textbf{Strapi CMS} OTP-auth plugin.
-		\item Designed an asynchronous receipt pipeline on \textbf{BullMQ} and \textbf{Redis} with idempotent, rate-limited jobs and exponential-backoff retries, delivering donation receipts and OTP/password-reset emails through \textbf{AWS SES}.
-		\item Led the migration from Render to \textbf{AWS} (\textbf{EC2} behind an \textbf{ALB} with \textbf{ACM} TLS, \textbf{RDS} PostgreSQL, \textbf{S3}) and built a \textbf{GitHub Actions} CI/CD pipeline deploying via \textbf{ECR}, \textbf{OIDC} and \textbf{SSM} with no stored keys, health-check gating and automatic rollback.
-	\end{highlights}
-\end{onecolentry}
-% \vspace{0.12 cm}
+\resumeSubHeadingListEnd
 
-% \begin{twocolentry}{
-%     May 2025 \textendash July 2025 
-% }
-%     \textbf{Summer Intern}, Tata group \textendash   Jamshedpur, Jharkhand\end{twocolentry}
-
-% \vspace{0.10 cm}
-% \begin{onecolentry}
-%     \begin{highlights}
-%         \item Developed a scalable auth platform for 1000+ users using NestJS, Next.js, JWT flows, and modular RBAC guards.
-%         \item Automated operational workflows with cron-driven pipelines, transactional mailers, and submission channels.
-%         \item Increased data retrieval speed by 40\% by switching from raw SQL to Prisma ORM.
-%     \end{highlights}
-% \end{onecolentry}
-
+%-----------PROJECTS-----------------
+\vspace{-5pt}
 \section{Projects}
+\resumeSubHeadingListStart
+\resumeSubItem{\href{https://github.com/IEEECS-VIT/p2p-model-distribution}{Peer-to-Peer File Sharing System} (Golang, TCP Sockets, Distributed Systems)}
+{Built a distributed P2P file-sharing system with deterministic chunking, content-addressable storage and hash-based integrity verification, plus a custom TCP layer with length-prefixed framing and versioned handshakes for fault-tolerant, backward-compatible transfer.}
+\vspace{2pt}
+\resumeSubItem{\href{https://github.com/dakshcodez/qualcomm-hack-lore}{Lore --- On-Device AI Knowledge Assistant} (Python, FastAPI, RAG, LanceDB, Snapdragon NPU)}
+{Built an on-device RAG assistant (document parsing, semantic chunking, vector search) during the Qualcomm Snapdragon Multiverse Hackathon, optimizing inference on Snapdragon NPUs via Qualcomm AI Hub and eliminating cloud dependency while improving latency.}
+\resumeSubHeadingListEnd
 
-\begin{twocolentry}{
-		\href{https://github.com/dakshcodez/sagittarius}{Github Link}
-	}
-	\textbf{Peer-to-Peer File Sharing System}
-\end{twocolentry}
+%-----------AWARDS-----------------
+\vspace{-5pt}
+\section{Honors and Awards}
+\begin{description}[font=$\bullet$]
+\item {Winner, Qualcomm Snapdragon Multiverse Hackathon --- built Lore, an on-device AI assistant.}
+\vspace{-5pt}
+\item {Top 30, Reverse Coding X, a reverse-coding competition hosted by IIT Madras as part of Shaastra.}
+\end{description}
 
-\vspace{0.06 cm}
-\begin{onecolentry}
-	\begin{highlights}
-		\item Built a distributed peer-to-peer file sharing system using deterministic file chunking, content-addressable storage, and hash-based integrity verification for fault-tolerant, consistent data distribution across decentralized nodes.
-		\item Developed a custom TCP networking layer with length-prefixed message framing, versioned handshakes, and optimized data transfer workflows for reliable, backward-compatible communication.
-		\item \textbf{Technologies:} Golang, TCP Sockets, Distributed Systems
-	\end{highlights}
-\end{onecolentry}
-
-
-\vspace{0.10 cm}
-
-\begin{twocolentry}{
-		\href{https://github.com/dakshcodez/qualcomm-hack-lore}{Github Link}
-	}
-	\textbf{Lore -- On-Device AI Knowledge Assistant}
-\end{twocolentry}
-
-\vspace{0.06 cm}
-\begin{onecolentry}
-	\begin{highlights}
-		\item Built an on-device AI knowledge assistant during the Qualcomm Snapdragon Multiverse Hackathon, designing a Retrieval-Augmented Generation (RAG) pipeline with document parsing, semantic chunking, vector search, and contextual response generation.
-		\item Optimized inference using Qualcomm AI Hub models on Snapdragon NPUs and engineered a scalable backend for document ingestion, indexing, retrieval, and session management, eliminating cloud dependency while improving latency.
-		\item \textbf{Technologies:} Python, FastAPI, RAG, LanceDB, Qualcomm AI Hub, Snapdragon NPU
-	\end{highlights}
-\end{onecolentry}
-
-% \begin{twocolentry}{
-%             \href{https://courier-chat.vercel.app/}{live} \AND 
-%             \href{https://github.com/dakshcodez/Real_Time_Chat_Application_Backend}{Repo}
-%         }
-%             \textbf{Courier Chat}\end{twocolentry}
-%
-%         \vspace{0.10 cm}
-%         \begin{onecolentry}
-%             \begin{highlights}
-%                 \item Built a secure, low-latency real-time messaging backend using Golang, WebSockets, and an event-driven architecture for one-to-one communication.
-%                 \item Implemented JWT-based authentication, authorization, and user-level rate limiting to prevent IDOR vulnerabilities, spam, and abuse.
-%                 \item Designed RESTful APIs supporting message history, editing, deletion, and session management.
-%                 \item Integrated PostgreSQL with GORM for persistent storage, efficient querying, and real-time message synchronization at scale.
-%
-%                 \item \textbf{Technologies:} Golang, WebSockets, PostgreSQL, GORM, JWT
-%             \end{highlights}
-%         \end{onecolentry}
-%     
-%         \vspace{0.2 cm}
-%
-% \begin{twocolentry}{
-%     \href{https://github.com/dakshcodez/Style_Me_AI_Wardrobe_Stylist}{Github Link}
-% }
-%     \textbf{AI Wardrobe Stylist}\end{twocolentry}
-
-% \vspace{0.10 cm}
-% \begin{onecolentry}
-%     \begin{highlights}
-%         \item Developed an AI-powered web application that generates personalized outfit recommendations based on user wardrobe data.
-%         \item Built scalable REST APIs and backend architecture for secure management of user profiles and inventory.
-%         \item Integrated real-time data synchronization and AI-driven recommendation pipelines for enhanced user experience.
-
-%         \item \textbf{Technologies:} Node.js, Express.js, Firebase, Firestore, Gemini API
-%    \end{highlights}
-% \end{onecolentry}
-
-\section{Achievements}
-
-\begin{onecolentry}
-	\begin{highlights}
-		\item Winner, \textbf{Qualcomm Snapdragon Multiverse Hackathon} \textendash built \textbf{Lore}, an on-device AI assistant on Snapdragon NPUs.
-		\item Top 30, \textbf{Reverse Coding X}, a reverse coding competition hosted by \textbf{IIT Madras} as part of Shaastra.
-		\item Senior Core Committee Member, \textbf{IEEE Computer Society VIT} \textendash hackathons, coding contests, and workshops.
-	\end{highlights}
-\end{onecolentry}
 \end{document}
