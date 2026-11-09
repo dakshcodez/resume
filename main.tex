@@ -126,10 +126,12 @@
     \resumeSubheading{Independ}{Remote}
     {Software Development Engineer Intern}{June 2026 - Present}
     \resumeItemListStart
-        \resumeItem{Backend testing}
-          {Wrote 1,700+ lines of Vitest unit tests across the files and admin modules (schedulers, services, repositories) in a NestJS backend, validating CASL-based access control, cursor pagination and dependency injection.}
-        \resumeItem{AI guardrails}
-          {Built guardrails for the AI pipeline --- JSON-schema-constrained structured outputs, strict Zod validation and retry-on-invalid-output logic --- plus an LLM negotiations-context module enriching prompts with authenticated history and structured bid data.}
+        \resumeItem{Production AI pack}
+          {Migrated the marketplace's AI features from a prototype into the production NestJS API in a single 400-file pull request: server-side project/proposal drafts with optimistic concurrency and transactional publish, plus a typed registry of 9 assistant tasks whose outputs pass the same validation as human input (milestone amounts computed server-side in integer paise).}
+        \resumeItem{Safety \& cost controls}
+          {Built per-user token budgets on Redis using atomic Lua scripts (reserve-then-settle, fail-closed) and a content-moderation and staff-review pipeline that compares drafts by meaning (NFKC-normalized), so rejected content cannot be resubmitted under a new draft or route.}
+        \resumeItem{Hardening \& quality}
+          {Hardened the platform against malformed Unicode (NUL / lone-surrogate rejection, code-point-accurate limits shared with the frontend) and delivered it spec-first with roughly 2,100 integration tests across 50+ files and five rounds of adversarial review.}
       \resumeItemListEnd
 
 \vspace{-5pt}
