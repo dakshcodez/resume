@@ -71,7 +71,7 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[topsep=2pt,itemsep=2pt,parsep=0pt,partopsep=0pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 %-----------------------------
@@ -118,11 +118,12 @@
           {Simulated fills, slippage, a cash ledger, realized/unrealized P\&L, position flips and end-of-day square-off on 75-minute candles, emitting each position change as a sequenced structured signal event.}
         \resumeItem{Reliable delivery layer}
           {Engineered a durable MongoDB outbox with per-destination dispatcher threads, backoff retries, rate limiting and a time-based send gate, plus a reconciler verifying each broker's state against the engine's book.}
+        \vspace{-10pt}
         \resumeItem{Market data \& testing}
           {Integrated Angel One SmartAPI real-time prices over WebSocket (unattended TOTP login with stale-tick guards) and ported a quantitative capital-allocation strategy from research into production; shipped 282 pytest tests (unit, property-based, end-to-end) and a FastAPI health/status API.}
       \resumeItemListEnd
 
-\vspace{-5pt}
+\vspace{3pt}
     \resumeSubheading{Independ}{Remote}
     {Software Development Engineer Intern}{June 2026 - Present}
     \resumeItemListStart
@@ -134,7 +135,7 @@
           {Hardened the platform against malformed Unicode (NUL / lone-surrogate rejection, code-point-accurate limits shared with the frontend) and delivered it spec-first with roughly 2,100 integration tests and five rounds of adversarial review.}
       \resumeItemListEnd
 
-\vspace{-5pt}
+\vspace{3pt}
     \resumeSubheading{TX Minds}{Remote $\cdot$ \href{https://d300n8uxkvbnfj.cloudfront.net/}{\textcolor{linkblue}{thetxfoundation.com~\footnotesize\faIcon{external-link-alt}}}}
     {Software Developer Intern}{Apr 2026 - Sep 2026}
     \resumeItemListStart
