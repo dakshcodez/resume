@@ -113,7 +113,7 @@
     {Quant Software Development Engineer Intern}{Oct 2026 - Present}
     \resumeItemListStart
         \resumeItem{Trading-signal service}
-          {Built an unattended, event-driven algorithmic trading-signal service in Python (roughly 11,000 lines) that converts AI price predictions into live long/short signals for NSE equities and routes them to the Tradetron and Algoninja brokers every trading day --- now live with real broker delivery across 8 stocks on an INR 10 lakh notional book.}
+          {Built an unattended, event-driven algorithmic trading-signal service in Python that converts AI price predictions into live long/short signals for NSE equities and routes them to the Tradetron and Algoninja brokers every trading day --- now live with real broker delivery across 8 stocks on an INR 10 lakh notional book.}
         \resumeItem{Paper-trading engine}
           {Simulated fills, slippage, a cash ledger, realized/unrealized P\&L, position flips and end-of-day square-off on 75-minute candles, emitting each position change as a sequenced structured signal event.}
         \resumeItem{Reliable delivery layer}
@@ -127,11 +127,11 @@
     {Software Development Engineer Intern}{June 2026 - Present}
     \resumeItemListStart
         \resumeItem{Production AI pack}
-          {Migrated the marketplace's AI features from a prototype into the production NestJS API in a single 400-file pull request: server-side project/proposal drafts with optimistic concurrency and transactional publish, plus a typed registry of 9 assistant tasks whose outputs pass the same validation as human input (milestone amounts computed server-side in integer paise).}
+          {Migrated the marketplace's AI features from a prototype into the production NestJS API: server-side project/proposal drafts with optimistic concurrency and transactional publish, plus a typed registry of 9 assistant tasks whose outputs pass the same validation as human input (milestone amounts computed server-side in integer paise).}
         \resumeItem{Safety \& cost controls}
           {Built per-user token budgets on Redis using atomic Lua scripts (reserve-then-settle, fail-closed) and a content-moderation and staff-review pipeline that compares drafts by meaning (NFKC-normalized), so rejected content cannot be resubmitted under a new draft or route.}
         \resumeItem{Hardening \& quality}
-          {Hardened the platform against malformed Unicode (NUL / lone-surrogate rejection, code-point-accurate limits shared with the frontend) and delivered it spec-first with roughly 2,100 integration tests across 50+ files and five rounds of adversarial review.}
+          {Hardened the platform against malformed Unicode (NUL / lone-surrogate rejection, code-point-accurate limits shared with the frontend) and delivered it spec-first with roughly 2,100 integration tests and five rounds of adversarial review.}
       \resumeItemListEnd
 
 \vspace{-5pt}
